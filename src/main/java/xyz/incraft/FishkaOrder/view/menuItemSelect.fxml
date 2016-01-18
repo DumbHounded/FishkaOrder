@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.incraft.FishkaOrder.view.MenuItemSelectController">
+   <children>
+      <TreeTableView fx:id="treeTableView" layoutX="113.0" layoutY="65.0" onMouseClicked="#OnMouseClicked" prefHeight="200.0" prefWidth="200.0" styleClass="menu-select" stylesheets="@menuItemSelect.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TreeTableColumn fx:id="idTableColumn" prefWidth="75.0" text="#" />
+          <TreeTableColumn fx:id="nameTableColumn" prefWidth="341.0" text="Название" />
+            <TreeTableColumn fx:id="priceTableColumn" minWidth="0.0" prefWidth="69.0" text="Цена" />
+        </columns>
+      </TreeTableView>
+   </children>
+</AnchorPane>

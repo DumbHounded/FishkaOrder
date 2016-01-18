@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="519.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.incraft.FishkaOrder.view.OrderController">
+   <children>
+      <TextField fx:id="textField" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="14.0" onAction="#OnTextAction" onKeyReleased="#OnTextChangedFromKeyboard" prefHeight="68.0" prefWidth="203.0" promptText="код товара" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

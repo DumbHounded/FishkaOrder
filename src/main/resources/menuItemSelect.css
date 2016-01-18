@@ -1,0 +1,4 @@
+.menu-select .tree-table-row-cell:expanded  {
+    -fx-font-weight: bold;
+    -fx-background-color: aquamarine;
+}

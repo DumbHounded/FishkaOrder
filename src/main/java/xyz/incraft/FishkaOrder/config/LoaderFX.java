@@ -26,6 +26,8 @@ public class LoaderFX {
     private ProductCodeController productCodeController;
     @Autowired
     private OrderListController orderListController;
+    @Autowired
+    private OrderCostController orderCostController;
 
     @Bean(name = "rootLoader")
     public FXMLLoader RootLoader(){
@@ -66,6 +68,13 @@ public class LoaderFX {
     public FXMLLoader OrderListLoader() {
         FXMLLoader loader = new FXMLLoader(mainResource.getResource("orderList.fxml"));
         loader.setControllerFactory(orderListController);
+        return loader;
+    }
+
+    @Bean(name = "orderCostLoader")
+    public FXMLLoader OrderCostLoader() {
+        FXMLLoader loader = new FXMLLoader(mainResource.getResource("orderCost.fxml"));
+        loader.setControllerFactory(orderCostController);
         return loader;
     }
 }

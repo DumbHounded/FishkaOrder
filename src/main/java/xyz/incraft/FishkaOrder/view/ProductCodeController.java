@@ -43,6 +43,10 @@ public class ProductCodeController implements Callback<Class<?>, Object> {
         TestEnterCode(st);
     }
 
+    public void ProductAction() {
+        OnTextAction();
+    }
+
     @FXML
     private void OnTextAction() {
         try {

@@ -59,12 +59,14 @@ public class OrderItem {
     public Integer IncrementQuantity() {
         ++quantity;
         quantityProperty.setValue(quantity.toString());
+        costProperty.setValue(PriceAdapter.PriceToString(CalculateCost()));
         return quantity;
     }
 
     public Integer DecrementQuantity() {
         --quantity;
         quantityProperty.setValue(quantity.toString());
+        costProperty.setValue(PriceAdapter.PriceToString(CalculateCost()));
         return quantity;
     }
 

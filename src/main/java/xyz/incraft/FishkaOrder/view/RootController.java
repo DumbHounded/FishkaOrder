@@ -1,12 +1,14 @@
 package xyz.incraft.FishkaOrder.view;
 
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import xyz.incraft.FishkaOrder.model.adapter.TreeItemMenuAdapter;
 import xyz.incraft.FishkaOrder.util.excel.ExcelMenuLoader;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -24,7 +26,7 @@ public class RootController implements Callback<Class<?>,Object>{
     @FXML
     public void LoadFromExcel() throws IOException {
         System.out.println("Загрузка меню из Excel");
-/*
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Выбери файл Excel для импорта");
         fileChooser.getExtensionFilters().addAll(
@@ -34,8 +36,8 @@ public class RootController implements Callback<Class<?>,Object>{
         if(selectedFile == null) return;
 
         excelMenuLoader.ReadExcel(selectedFile.getPath());
-*/
-        excelMenuLoader.ReadExcel("c:/work/menu/Заявка на 16 декабря.xls");
+
+//        excelMenuLoader.ReadExcel("c:/work/menu/Заявка на 16 декабря.xls");
         treeItemMenuAdapter.rebuild();
     }
 

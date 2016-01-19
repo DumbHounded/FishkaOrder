@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -49,13 +52,31 @@ public class MenuItemSelectController implements Callback<Class<?>,Object>{
         treeTableView.setShowRoot(false);
     }
 
-    @FXML
-    private void OnMouseClicked(){
+    private Integer getSelectedId() {
         ObservableList<TreeItem<TreeItemMenuAdapter.MenuItemAdapter>> list = treeTableView.getSelectionModel().getSelectedItems();
-        if(list.size()==0) return;
-        Integer id = list.get(0).getValue().getIntegerID();
-        if(id == -1) return;
+        if (list.size() == 0) return -1;
+        return list.get(0).getValue().getIntegerID();
+    }
+
+    private void ReState() {
+        Integer id = getSelectedId();
+        if (id == -1) return;
         productCodeController.TestAndSetCode(id);
+
+    }
+
+    @FXML
+    private void OnMouseClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() == 2) productCodeController.ProductAction();
+        ReState();
+    }
+
+    @FXML
+    private void OnKeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            productCodeController.ProductAction();
+        }
+        ReState();
     }
 
     public Object call(Class<?> param) {

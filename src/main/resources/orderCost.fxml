@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<HBox prefHeight="77.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="xyz.incraft.FishkaOrder.view.OrderCostController">
+    <children>
+        <Label prefHeight="78.0" prefWidth="535.0" text="Всего к оплате (руб)">
+            <font>
+                <Font size="46.0"/>
+            </font>
+            <HBox.margin>
+                <Insets left="10.0"/>
+            </HBox.margin>
+        </Label>
+        <Label fx:id="cost" prefHeight="86.0" prefWidth="202.0">
+            <font>
+                <Font size="38.0"/>
+            </font>
+        </Label>
+    </children>
+</HBox>

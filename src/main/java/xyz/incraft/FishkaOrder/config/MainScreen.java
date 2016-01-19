@@ -30,6 +30,8 @@ public class MainScreen {
     private FXMLLoader productCodeLoader;
     @Autowired
     private FXMLLoader orderListLoader;
+    @Autowired
+    private FXMLLoader orderCostLoader;
 
     @Autowired
     private BorderPane rootLayout;
@@ -43,6 +45,8 @@ public class MainScreen {
     private HBox productCodeLayout;
     @Autowired
     private AnchorPane orderListLayout;
+    @Autowired
+    private HBox orderCostLayout;
 
     @Bean(name = "rootLayout")
     public BorderPane RootLayout() throws IOException {
@@ -74,6 +78,11 @@ public class MainScreen {
         return (AnchorPane) containerOrderLoader.load();
     }
 
+    @Bean(name = "orderCostLayout")
+    public HBox OrderCostLayout() throws IOException {
+        return (HBox) orderCostLoader.load();
+    }
+
     @PostConstruct
     public void show(){
         rootLayout.setCenter(containerOrderLayout);
@@ -83,5 +92,6 @@ public class MainScreen {
         containerOrderController.setDividerPositions(0.4);
         orderLayout.setTop(productCodeLayout);
         orderLayout.setCenter(orderListLayout);
+        orderLayout.setBottom(orderCostLayout);
     }
 }

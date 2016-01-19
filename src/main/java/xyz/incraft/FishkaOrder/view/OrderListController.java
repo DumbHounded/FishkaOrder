@@ -1,8 +1,11 @@
 package xyz.incraft.FishkaOrder.view;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,6 +43,24 @@ public class OrderListController implements Callback<Class<?>, Object> {
         priceColumn.setCellValueFactory(cellData -> cellData.getValue().getPriceProperty());
         costColumn.setCellValueFactory(cellData -> cellData.getValue().getCostProperty());
         quantityColumn.setCellValueFactory(cellData -> cellData.getValue().getQuantityProperty());
+    }
+
+    private Integer getSelectedId() {
+        ObservableList<OrderItem> list = tableView.getSelectionModel().getSelectedItems();
+        if (list.size() == 0) return -1;
+        return list.get(0).getId();
+    }
+
+
+    @FXML
+    private void OnKeyPressed(KeyEvent keyEvent) {
+        KeyCode keyCode = keyEvent.getCode();
+
+        if (keyCode == KeyCode.ADD) {
+            orderList.addItem(getSelectedId());
+        } else if (keyCode == KeyCode.SUBTRACT) {
+            orderList.removeItem(getSelectedId());
+        }
     }
 
 

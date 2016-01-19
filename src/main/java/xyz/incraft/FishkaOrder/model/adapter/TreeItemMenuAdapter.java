@@ -1,8 +1,6 @@
 package xyz.incraft.FishkaOrder.model.adapter;
 
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Михаил on 18.01.2016.
+ *
  */
 @Component
 public class TreeItemMenuAdapter {
@@ -26,9 +25,6 @@ public class TreeItemMenuAdapter {
         return treeItem;
     }
 
-    private String PriceToString(Integer price){
-        return String.format("%.2f",price.doubleValue()/100.0);
-    }
 
     public void rebuild(){
         treeItem.getChildren().clear();
@@ -40,7 +36,7 @@ public class TreeItemMenuAdapter {
                 g.getChildren().add(new TreeItem<>(
                         new MenuItemAdapter(menuItem.getIdItem(),
                                 menuItem.getName(),
-                                PriceToString(menuItem.getClientPrice()))));
+                                PriceAdapter.PriceToString(menuItem.getClientPrice()))));
             }
             g.setExpanded(true);
             treeItem.getChildren().add(g);

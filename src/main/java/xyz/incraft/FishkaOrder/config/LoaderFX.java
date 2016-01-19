@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import xyz.incraft.FishkaOrder.MainApp;
-import xyz.incraft.FishkaOrder.view.ContainerOrderController;
-import xyz.incraft.FishkaOrder.view.MenuItemSelectController;
-import xyz.incraft.FishkaOrder.view.OrderController;
-import xyz.incraft.FishkaOrder.view.RootController;
+import xyz.incraft.FishkaOrder.view.*;
 
 /**
  * Created by Михаил on 18.01.2016.
@@ -25,6 +22,10 @@ public class LoaderFX {
     private MenuItemSelectController menuItemSelectController;
     @Autowired
     private ContainerOrderController containerOrderController;
+    @Autowired
+    private ProductCodeController productCodeController;
+    @Autowired
+    private OrderListController orderListController;
 
     @Bean(name = "rootLoader")
     public FXMLLoader RootLoader(){
@@ -51,6 +52,20 @@ public class LoaderFX {
     public FXMLLoader ContainerOrderLoader(){
         FXMLLoader loader = new FXMLLoader(mainResource.getResource("containerOrder.fxml"));
         loader.setControllerFactory(containerOrderController);
+        return loader;
+    }
+
+    @Bean(name = "productCodeLoader")
+    public FXMLLoader ProductCodeLoader() {
+        FXMLLoader loader = new FXMLLoader(mainResource.getResource("productCode.fxml"));
+        loader.setControllerFactory(productCodeController);
+        return loader;
+    }
+
+    @Bean(name = "orderListLoader")
+    public FXMLLoader OrderListLoader() {
+        FXMLLoader loader = new FXMLLoader(mainResource.getResource("orderList.fxml"));
+        loader.setControllerFactory(orderListController);
         return loader;
     }
 }

@@ -1,9 +1,9 @@
 package xyz.incraft.FishkaOrder.config;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -14,6 +14,7 @@ import java.io.IOException;
 
 /**
  * Created by Михаил on 18.01.2016.
+ *
  */
 @Component
 public class MainScreen {
@@ -25,15 +26,23 @@ public class MainScreen {
     private FXMLLoader menuItemSelectLoader;
     @Autowired
     private FXMLLoader containerOrderLoader;
+    @Autowired
+    private FXMLLoader productCodeLoader;
+    @Autowired
+    private FXMLLoader orderListLoader;
 
     @Autowired
     private BorderPane rootLayout;
     @Autowired
-    private AnchorPane orderLayout;
+    private BorderPane orderLayout;
     @Autowired
     private AnchorPane menuItemSelectLayout;
     @Autowired
     private AnchorPane containerOrderLayout;
+    @Autowired
+    private HBox productCodeLayout;
+    @Autowired
+    private AnchorPane orderListLayout;
 
     @Bean(name = "rootLayout")
     public BorderPane RootLayout() throws IOException {
@@ -41,8 +50,18 @@ public class MainScreen {
     }
 
     @Bean(name = "orderLayout")
-    public AnchorPane OrderLayout() throws IOException {
-        return (AnchorPane) orderLoader.load();
+    public BorderPane OrderLayout() throws IOException {
+        return (BorderPane) orderLoader.load();
+    }
+
+    @Bean(name = "productCodeLayout")
+    public HBox ProductCodeLayout() throws IOException {
+        return (HBox) productCodeLoader.load();
+    }
+
+    @Bean(name = "orderListLayout")
+    public AnchorPane OrderListLayout() throws IOException {
+        return (AnchorPane) orderListLoader.load();
     }
 
     @Bean(name = "menuItemSelectLayout")
@@ -62,5 +81,7 @@ public class MainScreen {
         containerOrderController.getItems().add(0,menuItemSelectLayout);
         containerOrderController.getItems().add(1,orderLayout);
         containerOrderController.setDividerPositions(0.4);
+        orderLayout.setTop(productCodeLayout);
+        orderLayout.setCenter(orderListLayout);
     }
 }

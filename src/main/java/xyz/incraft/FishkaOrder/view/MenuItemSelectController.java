@@ -5,13 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTablePosition;
 import javafx.scene.control.TreeTableView;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import xyz.incraft.FishkaOrder.model.adapter.TreeItemMenuAdapter;
-import xyz.incraft.FishkaOrder.model.menu.Menu;
 
 /**
  * Created by Михаил on 18.01.2016.
@@ -22,6 +20,8 @@ public class MenuItemSelectController implements Callback<Class<?>,Object>{
 
     @Autowired
     private TreeItemMenuAdapter treeItemMenuAdapter;
+    @Autowired
+    private ProductCodeController productCodeController;
 
     @FXML
     private TreeTableView<TreeItemMenuAdapter.MenuItemAdapter> treeTableView;
@@ -55,7 +55,7 @@ public class MenuItemSelectController implements Callback<Class<?>,Object>{
         if(list.size()==0) return;
         Integer id = list.get(0).getValue().getIntegerID();
         if(id == -1) return;
-        System.out.println("id = "+id);
+        productCodeController.TestAndSetCode(id);
     }
 
     public Object call(Class<?> param) {

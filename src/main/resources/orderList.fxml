@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="220.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="xyz.incraft.FishkaOrder.view.OrderListController">
+    <children>
+        <TableView fx:id="tableView" layoutX="149.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0"
+                   AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+                   AnchorPane.topAnchor="10.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="#"/>
+                <TableColumn fx:id="nameColumn" prefWidth="409.0" text="Название"/>
+                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Цена"/>
+                <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Количество"/>
+                <TableColumn fx:id="costColumn" prefWidth="75.0" text="Стоимость"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

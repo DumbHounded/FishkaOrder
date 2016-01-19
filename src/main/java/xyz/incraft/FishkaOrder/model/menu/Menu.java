@@ -42,8 +42,15 @@ public class Menu {
         return list;
     }
 
-    public List<MenuItem> getItems() {
-        return items;
+    public boolean isValidId(Integer id) {
+        return getMenuItem(id) != null;
+    }
+
+    public MenuItem getMenuItem(Integer id) {
+        for (MenuItem menuItem : items) {
+            if (menuItem.getIdItem().equals(id)) return menuItem;
+        }
+        return null;
     }
 
     public void clear(){

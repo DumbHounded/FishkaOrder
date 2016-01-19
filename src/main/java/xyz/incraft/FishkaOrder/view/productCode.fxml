@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<HBox prefHeight="62.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="xyz.incraft.FishkaOrder.view.ProductCodeController">
+    <children>
+        <TextField fx:id="textField" alignment="CENTER_RIGHT" onAction="#OnTextAction"
+                   onKeyReleased="#OnTextChangedFromKeyboard" prefHeight="68.0" prefWidth="200.0"
+                   promptText="код товара">
+            <font>
+                <Font size="31.0"/>
+            </font>
+            <HBox.margin>
+                <Insets right="10.0"/>
+            </HBox.margin>
+        </TextField>
+        <Label fx:id="labelDescription" minWidth="200.0" prefHeight="88.0">
+            <font>
+                <Font size="25.0"/>
+            </font>
+            <HBox.margin>
+                <Insets right="10.0"/>
+            </HBox.margin>
+        </Label>
+        <Label fx:id="labelPriceMenuItem" minWidth="113.0" prefHeight="76.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Label>
+    </children>
+</HBox>
